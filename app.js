@@ -22,10 +22,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search/:term', (req, res) => {
-  res.send(req.params.term)
+  let test;
+  for (let key in data.tgcJsNavProducts) {
+    const obj = data.tgcJsNavProducts[key];
+    if (obj.name === req.params.term) {
+      return res.json({
+        name: req.params.term,
+        price: obj.price
+      })
+    }
+  }
+  res.json({price: false})
 })
 
 const port = process.env.PORT || 3000;
-const server = app.listen(port, () => {
-    console.log('Server listening on port ' + port);
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
