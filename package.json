@@ -1,0 +1,14 @@
+{
+  "name": "great-courses",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "url": "https://github.com/leftynaut/great-courses.git",
+    "type": "git"
+  },
+  "author": "Michael Lefkowitz <lefkowitz.michael@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
