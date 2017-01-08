@@ -15,7 +15,7 @@
 
     // gets first "li" in the cart-sidebar "ol"
     const firstItem = document.getElementById("cart-sidebar").firstElementChild;
-    console.log(firstItem);
+    //console.log(firstItem);
 
     // finds the "a" tag in first "li", then get its "title" attribute
     const firstItemTitle = firstItem.getElementsByTagName("a")[0].getAttribute("title");
