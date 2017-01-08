@@ -7,6 +7,15 @@ const data = require('./research/utag-export')
 
 const app = express();
 
+const allowCrossDomain = (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://www.thegreatcourses.com');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
+app.use(allowCrossDomain);
+
 app.get('/', (req, res) => {
   // const url = 'http://www.thegreatcourses.com/courses/all-types/on-sale-courses';
   // request(url, (error, response, html) => {

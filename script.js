@@ -20,9 +20,13 @@
     // finds the "a" tag in first "li", then get its "title" attribute
     const firstItemTitle = firstItem.getElementsByTagName("a")[0].getAttribute("title");
     console.log(firstItemTitle);
-
     // get full price of item
       // if item isn't on sale, show full price and fake coupon
       // if item is on sale, show full price and sale price
-    
+
+
+    $.get(`http://localhost:3000/search/${firstItemTitle}`, (data) => {
+      alert(data);
+    });
+
 })();
