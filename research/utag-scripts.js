@@ -53,3 +53,6 @@ tgcJsNavContainer = new TgcJsNav_ProductContainer(
 );
 
 tgcJsNavContainer.switchModeByCookie();
+
+// this returns an object -- nothing of value yet
+window.utag_data
