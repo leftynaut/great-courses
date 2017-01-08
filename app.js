@@ -35,9 +35,11 @@ app.get('/search/:term', (req, res) => {
   for (let key in data.tgcJsNavProducts) {
     const obj = data.tgcJsNavProducts[key];
     if (obj.name === req.params.term) {
+      const top = +obj.price_html.split('$')[1].split('<')[0] + obj.price
       return res.json({
         name: req.params.term,
-        price: obj.price
+        price: obj.price,
+        top
       })
     }
   }
