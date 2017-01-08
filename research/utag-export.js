@@ -1,5 +1,4 @@
-<script type="text/javascript">
-    tgcJsNavProducts = {
+const tgcJsNavProducts = {
         "9": {
             "id": 9
         },
@@ -3558,4 +3557,5 @@
             }
         }
     };
-</script>
+
+    exports.tgcJsNavProducts = tgcJsNavProducts;
