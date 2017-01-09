@@ -1,8 +1,8 @@
 const express = require('express');
 const fs = require('fs');
-// const request = require('request');
-// const cheerio = require('cheerio');
+// const phantomjs = require('phantomjs-prebuilt');
 
+// TODO: Replace utag-export with calls to DB
 const data = require('./research/utag-export')
 
 const app = express();
@@ -18,18 +18,8 @@ app.use(allowCrossDomain);
 
 app.get('/', (req, res) => {
   // TODO: Setup a timed scraper to grab the tgcJsNavProducts global variable
-  //       on an hourly basis and update the a database with current sale items
-
-  // const url = 'http://www.thegreatcourses.com/courses/all-types/on-sale-courses';
-  // request(url, (error, response, html) => {
-  //   if(!error) {
-  //     console.log(data)
-  //     const $ = cheerio.load(html);
-  //     const currentSale = [];
-  //     let globalVar = $('tgcJsNavProducts')
-  //     res.json({test: true})
-  //   }
-  // })
+  //       on an hourly basis and update a database with current sale items
+  //       via PhantomJS
   res.json({test: true})
 });
 
