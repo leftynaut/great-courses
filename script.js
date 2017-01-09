@@ -9,7 +9,7 @@
 // @require      https://code.jquery.com/jquery-1.12.4.js
 // ==/UserScript==
 
-(function() {
+(() => {
     'use strict';
 
     // gets first "li" in the cart-sidebar "ol"
@@ -28,15 +28,16 @@
             let message = `${firstItemTitle} is almost out of stock!`;
             console.log(message);
             $('.coupon-message').html('&nbsp;');
+            const style = "position:fixed;background:url(http://www.thegreatcourses.com/skin/frontend/enterprise/tgc/images/tgc/main-bg.jpg);z-index:100;width:100%;text-align:center;";
             if (data.price) {
               console.log(`Get it now while it's on sale for $${data.price}!`);
               console.log(`before it goes back to the orignal price of $${data.top}`);
-              $('body').prepend(`<div id="coupon-dialog" style="position:fixed;background:url(http://www.thegreatcourses.com/skin/frontend/enterprise/tgc/images/tgc/main-bg.jpg);z-index:100;width:100%;text-align:center;">${message}</div>`);
+              $('body').prepend(`<div id="coupon-dialog" style="${style}">${message}</div>`);
             } else {
               console.log(`Grab it now with a 20% off coupon code - SAVENOW20`);
               const currentPrice = firstItem.querySelector(".price").innerHTML.slice(1);
               console.log(`bringing your price down to $${+currentPrice * 0.8} from the original price of $${currentPrice}`);
-              $('body').prepend(`<div id="coupon-dialog" style="position:fixed;background:url(http://www.thegreatcourses.com/skin/frontend/enterprise/tgc/images/tgc/main-bg.jpg);z-index:100;width:100%;text-align:center;">${message}</div>`);
+              $('body').prepend(`<div id="coupon-dialog" style="${style}">${message}</div>`);
             }
         } else {
             console.log('Error!');
