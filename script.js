@@ -27,16 +27,16 @@
             const data = JSON.parse(request.responseText);
             let message = `${firstItemTitle} is almost out of stock!`;
             console.log(message);
+            $('.coupon-message').html('&nbsp;');
             if (data.price) {
               console.log(`Get it now while it's on sale for $${data.price}!`);
               console.log(`before it goes back to the orignal price of $${data.top}`);
-              $('body').append('<div id="dialog34" title="Basic dialog"><p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the icon.</p></div>');
+              $('body').prepend(`<div id="coupon-dialog" style="position:fixed;background:url(http://www.thegreatcourses.com/skin/frontend/enterprise/tgc/images/tgc/main-bg.jpg);z-index:100;width:100%;text-align:center;">${message}</div>`);
             } else {
               console.log(`Grab it now with a 20% off coupon code - SAVENOW20`);
               const currentPrice = firstItem.querySelector(".price").innerHTML.slice(1);
               console.log(`bringing your price down to $${+currentPrice * 0.8} from the original price of $${currentPrice}`);
               $('body').prepend(`<div id="coupon-dialog" style="position:fixed;background:url(http://www.thegreatcourses.com/skin/frontend/enterprise/tgc/images/tgc/main-bg.jpg);z-index:100;width:100%;text-align:center;">${message}</div>`);
-              $('.coupon-message').html('&nbsp;');
             }
         } else {
             console.log('Error!');
