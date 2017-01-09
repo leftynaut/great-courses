@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
-const request = require('request');
-const cheerio = require('cheerio');
+// const request = require('request');
+// const cheerio = require('cheerio');
 
 const data = require('./research/utag-export')
 
@@ -17,6 +17,9 @@ const allowCrossDomain = (req, res, next) => {
 app.use(allowCrossDomain);
 
 app.get('/', (req, res) => {
+  // TODO: Setup a timed scraper to grab the tgcJsNavProducts global variable
+  //       on an hourly basis and update the a database with current sale items
+
   // const url = 'http://www.thegreatcourses.com/courses/all-types/on-sale-courses';
   // request(url, (error, response, html) => {
   //   if(!error) {
